@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tren Pengangguran Terbuka di Indonesia (2019–2024)</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Beranda -->
+        <div class="header">
+            <h1>Tren Pengangguran Terbuka di Indonesia</h1>
+            <p>Analisis komprehensif Tingkat Pengangguran Terbuka (TPT) Indonesia periode 2015–2024 berdasarkan data Survei Angkatan Kerja Nasional (Sakernas) BPS</p>
+            
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-section="home">🏠 Beranda</button>
+                <button class="nav-btn" data-section="data">📊 Tentang Data</button>
+                <button class="nav-btn" data-section="visualisasi">📈 Visualisasi</button>
+                <button class="nav-btn" data-section="analisis">🔍 Analisis</button>
+                <button class="nav-btn" data-section="kesimpulan">💡 Kesimpulan</button>
+            </div>
+        </div>
+
+        <div id="home" class="section active">
+            <h2>Selamat Datang</h2>
+            <p>Pengangguran merupakan salah satu indikator utama dalam mengukur kesehatan ekonomi suatu negara. Melalui dashboard ini, Anda dapat menjelajahi tren Tingkat Pengangguran Terbuka (TPT) di Indonesia selama hampir satu dekade terakhir.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4.91%</div>
+                    <div class="stat-label">TPT Terkini (Agustus 2024)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7.07%</div>
+                    <div class="stat-label">TPT Tertinggi (Agustus 2020)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.82%</div>
+                    <div class="stat-label">TPT Terendah (Februari 2024)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">152.11 Juta</div>
+                    <div class="stat-label">Total Angkatan Kerja (2024)</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🎯 Tujuan Dashboard</h3>
+                <p>Dashboard ini dirancang khusus untuk <strong>akademisi, mahasiswa, dan pembuat kebijakan</strong> yang membutuhkan data akurat dan visualisasi yang mudah dipahami tentang kondisi ketenagakerjaan di Indonesia.</p>
+            </div>
+        </div>
+
+        <!-- Tentang Data -->
+        <div id="data" class="section">
+            <h2>📋 Tentang Data</h2>
+            
+            <div class="data-source">
+                <h3>📊 Sumber Data</h3>
+                <ul>
+                    <li><strong>Sumber Utama:</strong> Survei Angkatan Kerja Nasional (Sakernas)</li>
+                    <li><strong>Lembaga:</strong> Badan Pusat Statistik (BPS) Indonesia</li>
+                    <li><strong>Periode:</strong> 2019 – 2024</li>
+                    <li><strong>Frekuensi:</strong> Data semesteran (Februari dan Agustus)</li>
+                </ul>
+            </div>
+
+            <h3>📚 Definisi Tingkat Pengangguran Terbuka (TPT)</h3>
+            <p>TPT adalah persentase jumlah pengangguran terbuka terhadap jumlah angkatan kerja. Pengangguran terbuka terdiri dari:</p>
+            <ul>
+                <li>Mereka yang sedang mencari pekerjaan</li>
+                <li>Mereka yang mempersiapkan usaha</li>
+                <li>Mereka yang tidak mencari pekerjaan karena merasa tidak mungkin mendapatkan pekerjaan</li>
+                <li>Mereka yang sudah mempunyai pekerjaan tetapi belum mulai bekerja</li>
+            </ul>
+
+            <div class="highlight">
+                <h3>🔗 Akses Data Asli</h3>
+                <p>Untuk mengakses data lengkap dan terbaru, kunjungi:</p>
+                <ul>
+                    <li><a href="https://www.bps.go.id" target="_blank">Portal Resmi BPS Indonesia</a></li>
+                    <li><a href="https://www.bps.go.id/indicator/6/543/1/tingkat-pengangguran-terbuka-menurut-provinsi.html" target="_blank">Data TPT Menurut Provinsi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Visualisasi Data -->
+        <div id="visualisasi" class="section">
+            <h2>📈 Visualisasi Data</h2>
+            
+            <h3>Tren TPT Indonesia (2019-2024)</h3>
+            <div class="chart-container">
+                <canvas id="tptChart"></canvas>
+            </div>
+
+            <h3>Perbandingan TPT Berdasarkan Periode</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Februari (%)</th>
+                        <th>Agustus (%)</th>
+                        <th>Tren</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024</td>
+                        <td>4.82</td>
+                        <td>4.91</td>
+                        <td><span class="trend-indicator trend-up">↗ +0.09</span></td>
+                        <td>Sedikit meningkat</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>5.45</td>
+                        <td>5.32</td>
+                        <td><span class="trend-indicator trend-down">↘ -0.13</span></td>
+                        <td>Menurun</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>6.26</td>
+                        <td>6.49</td>
+                        <td><span class="trend-indicator trend-up">↗ +0.23</span></td>
+                        <td>Dampak pandemi</td>
+                    </tr>
+                    <tr>
+                        <td>2020</td>
+                        <td>4.99</td>
+                        <td>7.07</td>
+                        <td><span class="trend-indicator trend-up">↗ +2.08</span></td>
+                        <td>Puncak pandemi COVID-19</td>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>5.01</td>
+                        <td>5.28</td>
+                        <td><span class="trend-indicator trend-up">↗ +0.27</span></td>
+                        <td>Stabil</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight">
+                <h3>📊 Insight Visualisasi</h3>
+                <p>Grafik menunjukkan pola yang jelas: TPT mengalami lonjakan drastis pada 2020-2021 akibat pandemi COVID-19, kemudian berangsur membaik hingga 2024 dengan level yang relatif rendah dibandingkan periode sebelum pandemi.</p>
+            </div>
+        </div>
+
+        <!-- Analisis Data -->
+        <div id="analisis" class="section">
+            <h2>🔍 Analisis Mendalam</h2>
+            
+            <h3>📈 Tren Utama (2019-2024)</h3>
+            <div class="highlight">
+                <h4>1. Periode Pra-Pandemi (2019-2020)</h4>
+                <p>TPT relatif stabil di kisaran 5-6%, menunjukkan kondisi ekonomi yang cukup baik dengan sedikit fluktuasi musiman.</p>
+                
+                <h4>2. Dampak Pandemi COVID-19 (2020-2021)</h4>
+                <p>TPT melonjak drastis mencapai <strong>7.07% pada Agustus 2020</strong>, tertinggi dalam dekade terakhir. Hal ini disebabkan oleh:</p>
+                <ul>
+                    <li>Pembatasan aktivitas ekonomi (PSBB/PPKM)</li>
+                    <li>Penutupan berbagai sektor usaha</li>
+                    <li>Penurunan daya beli masyarakat</li>
+                    <li>Ketidakpastian ekonomi global</li>
+                </ul>
+                
+                <h4>3. Periode Pemulihan (2022-2024)</h4>
+                <p>TPT berangsur menurun dan mencapai level terendah <strong>4.82% pada Februari 2024</strong>, menandakan:</p>
+                <ul>
+                    <li>Pemulihan ekonomi yang signifikan</li>
+                    <li>Efektivitas program stimulus pemerintah</li>
+                    <li>Adaptasi dunia usaha terhadap kondisi new normal</li>
+                    <li>Pertumbuhan sektor digital dan teknologi</li>
+                </ul>
+            </div>
+
+            <h3>🎯 Faktor-Faktor Berpengaruh</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">📊</div>
+                    <div class="stat-label"><strong>Kebijakan Moneter</strong><br>Suku bunga dan inflasi mempengaruhi investasi dan penciptaan lapangan kerja</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🏭</div>
+                    <div class="stat-label"><strong>Pertumbuhan Ekonomi</strong><br>PDB yang tumbuh positif mendorong penyerapan tenaga kerja</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🎓</div>
+                    <div class="stat-label"><strong>Kesesuaian Skill</strong><br>Mismatch antara kebutuhan industri dan kompetensi lulusan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🌐</div>
+                    <div class="stat-label"><strong>Transformasi Digital</strong><br>Digitalisasi menciptakan peluang kerja baru di era modern</div>
+                </div>
+            </div>
+
+            <h3>⚖️ Implikasi Kebijakan</h3>
+            <p>Berdasarkan tren data TPT, beberapa implikasi kebijakan yang dapat dipertimbangkan:</p>
+            <ul>
+                <li><strong>Penguatan program pelatihan vokasi</strong> untuk mengurangi mismatch skill</li>
+                <li><strong>Insentif UMKM</strong> sebagai penyerap tenaga kerja terbesar</li>
+                <li><strong>Investasi infrastruktur digital</strong> untuk mendukung ekonomi digital</li>
+                <li><strong>Program kewirausahaan</strong> untuk menciptakan job creator, bukan hanya job seeker</li>
+            </ul>
+        </div>
+
+        <!-- Kesimpulan section -->
+        <div id="kesimpulan" class="section">
+            <h2>💡 Kesimpulan & Rekomendasi</h2>
+            
+            <div class="highlight">
+                <h3>🎯 Temuan Utama</h3>
+                <ol>
+                    <li><strong>Resiliensi Ekonomi:</strong> Indonesia menunjukkan kemampuan pemulihan yang baik pasca-pandemi dengan TPT kembali ke level pra-pandemi</li>
+                    <li><strong>Volatilitas Krisis:</strong> TPT dapat melonjak drastis saat terjadi krisis (dari 4.99% ke 7.07% dalam 6 bulan)</li>
+                    <li><strong>Tren Positif:</strong> TPT 2024 mencapai level terendah dalam dekade terakhir (4.82%)</li>
+                    <li><strong>Pola Musiman:</strong> Umumnya TPT Agustus sedikit lebih tinggi dari Februari</li>
+                </ol>
+            </div>
+
+            <h3>📋 Rekomendasi untuk Stakeholder</h3>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">🎓</div>
+                    <div class="stat-label"><strong>Untuk Akademisi</strong><br>Lakukan riset mendalam tentang faktor-faktor yang mempengaruhi fluktuasi TPT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">👨‍🎓</div>
+                    <div class="stat-label"><strong>Untuk Mahasiswa</strong><br>Persiapkan skill yang relevan dengan kebutuhan industri masa depan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🏛️</div>
+                    <div class="stat-label"><strong>Untuk Pembuat Kebijakan</strong><br>Fokus pada program yang terbukti efektif mengurangi pengangguran</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">💼</div>
+                    <div class="stat-label"><strong>Untuk Dunia Usaha</strong><br>Kontribusi dalam program pelatihan dan magang untuk mengurangi gap skill</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3>🔮 Outlook ke Depan</h3>
+                <p>Berdasarkan tren saat ini, diperkirakan TPT Indonesia akan:</p>
+                <ul>
+                    <li>Tetap stabil di kisaran 4.5-5.5% dalam jangka pendek</li>
+                    <li>Berpotensi menurun lebih lanjut jika pertumbuhan ekonomi tetap positif</li>
+                    <li>Memerlukan perhatian khusus pada pengangguran lulusan SMK dan Diploma</li>
+                    <li>Memanfaatkan bonus demografi dengan pelatihan yang tepat sasaran</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <h3>📞 Informasi Kontak</h3>
+            <p><strong>Dibuat untuk:</strong> Tugas Diseminasi Data BPS</p>
+            <p><strong>Sumber Data:</strong> <a href="https://www.bps.go.id" target="_blank">Badan Pusat Statistik Indonesia</a></p>
+            <p><strong>Target Audiens:</strong> Akademisi, Mahasiswa, dan Pembuat Kebijakan</p>
+            <p><strong>Terakhir Diperbarui:</strong> Juni 2025</p>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                <p><em>©2025 Made by Iqbal Firmansyah | 1KS1 | Politeknik Statistika STIS</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
